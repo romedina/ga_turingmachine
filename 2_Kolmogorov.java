@@ -3,6 +3,8 @@
  *	EN UN ARCHIVO BINARIO-ASCII
  */
 import java.io.*;
+import java.util.*;
+import java.lang.*;
 import java.util.Random;
 
 class Kolmogorov {
@@ -124,7 +126,6 @@ class Kolmogorov {
   public static	void Modify() throws Exception {
 	Kbr	= new BufferedReader(new InputStreamReader(System.in));
   	String Resp;
-  	System.out.println("Rep: " +Resp);
 	while (true){
 		CalcParams();
 		DispParams();
@@ -243,6 +244,9 @@ class Kolmogorov {
 		//}//endIf
 	}//endFor
   }//endMuta
+
+
+   
 		 
   public static	void Evalua(double fitness[],String	genoma[]){
 	String Tape,NewTape;
@@ -253,6 +257,22 @@ class Kolmogorov {
   		Inicia Codigo de Rodrigo Medina. ---------------------------
   		==================================
   	*/	
+  		//for (int j=0;j<N;j++){
+  		//	if(TT.charAt(j) == genoma[i].charAt(j)){
+		//		fitness[i]++;
+		//	}
+  		//}
+  		
+  		
+  		for (int j=0; j < TT.length(); j++){
+  			if(TT.charAt(j) == genoma[i].charAt(j)){
+  				fitness[i]++;
+  			}
+  		}
+  		//System.out.println("coincidencias en genoma" + i + ": " + fitness[i]);
+
+
+
   		
 
 	
