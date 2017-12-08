@@ -262,10 +262,41 @@ class Kolmogorov {
 
 		// Comparación del NewTape -> TT
 
-		System.out.println("Genoma: " + genoma[i]);
-		System.out.println("Tape: " + Tape);
-		System.out.println("NewTape: " + NewTape );
-		System.out.println("TT: " + TT);
+		//System.out.println("Genoma: " + genoma[i]);
+		//System.out.println("Tape: " + Tape);
+		//System.out.println("NewTape: " + NewTape );
+		//System.out.println("TT: " + TT);
+
+		int minLength = Math.min(TT.length(), NewTape.length());
+
+		if(minLength == 0){
+			System.out.println("Tamano es igual a 0");
+			cuentaSimilitud = 0;
+		} else
+		{
+			for (int j = 0; j < minLength; j++ ) {
+				if (TT.charAt(j) == NewTape.charAt(j)) {
+					cuentaSimilitud++;
+				}
+			}
+		}
+
+		double fitnessSimilitud = (double)cuentaSimilitud/L;
+
+		try{
+
+
+		int cuentaRegresiva = LG - 1;
+		int longitud = UTM_AG.Complejidad(genoma[i],Tape,NN,(int)L/2);
+		double fitnessLongitud = 16/(double)longitud;
+		double fitnessCalculo = fitnessSimilitud + (double)fitnessLongitud;
+		fitness[i] = fitnessCalculo;
+
+		System.out.println("STATS -----");
+		System.out.println("Grado Similitud: " + fitnessSimilitud);
+		System.out.println("Evaluacion Longitud: " + fitnessLongitud);
+		System.out.println("Fitness: " + fitnessCalculo);
+		}catch (Exception e) {}
 
 
 	}//endFor
