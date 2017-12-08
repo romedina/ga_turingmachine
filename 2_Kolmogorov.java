@@ -250,68 +250,24 @@ class Kolmogorov {
 		 
   public static	void Evalua(double fitness[],String	genoma[]){
 	String Tape,NewTape;
-	for (int i=0;i<N;i++){
-
-	/* 
-  		==================================
-  		Inicia Codigo de Rodrigo Medina. ---------------------------
-  		==================================
-  	*/	
-  		//for (int j=0;j<N;j++){
-  		//	if(TT.charAt(j) == genoma[i].charAt(j)){
-		//		fitness[i]++;
-		//	}
-  		//}
-  		
-  		
-  		for (int j=0; j < TT.length(); j++){
-  			if(TT.charAt(j) == genoma[i].charAt(j)){
-  				fitness[i]++;
-  			}
-  		}
-  		//System.out.println("coincidencias en genoma" + i + ": " + fitness[i]);
-
-
-
-  		
+	L = TT.length();
+	Tape = "0";
+	for (int j = 1; j < L; j++) Tape = Tape + "0";
 
 	
-
-
-
-  	/* 
-  		==================================
-  		FIN Codigo de Rodrigo Medina. -----------------------------
-  		==================================
-  	*/
-
-
-
-/*
- *	NewTape=UTM_AG(TT,Tape,N,P)
- *				/\	 |	| |
-		Description of Turing's Machine in ASCII binary
-					 |  | |
-			Input tape in ASCII binary
-					    | |
-				Maximum number of transitions
-					      |
-					Position of the Head at offset
-					   	  
-		Maximum 64 states (000000 - 111111)
-			State 111111 is HALT
-
-	ON OUTPUT:
-		1) The processed tape if HALT
-		2) Idem if N is exceeded
-		3) Nul tape if over/under flow occurs
-*/
-		int PP=L/2; 					// UBICA LA CABEZA A LA MITAD DE LA CINTA
-/*
- *		La cinta inicial esta Llena de 0s
- */
-		Tape="0";for (int j=1;j<L;j++) Tape=Tape+"0";
+	for (int i=0;i<N;i++){
+		int PP=L/2; // UBICA LA CABEZA A LA MITAD DE LA CINTA
 		NewTape=UTM_AG.NewTape(genoma[i],Tape,NN,PP);
+		int cuentaSimilitud = 0;
+
+		// Comparación del NewTape -> TT
+
+		System.out.println("Genoma: " + genoma[i]);
+		System.out.println("Tape: " + Tape);
+		System.out.println("NewTape: " + NewTape );
+		System.out.println("TT: " + TT);
+
+
 	}//endFor
 	return;
   }//endEvalua
